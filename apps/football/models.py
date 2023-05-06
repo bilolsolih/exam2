@@ -106,3 +106,14 @@ class Card(models.Model):
     class Meta:
         verbose_name = 'Card'
         verbose_name_plural = 'Cards'
+
+
+class Replacement(models.Model):
+    player1 = models.ForeignKey(to='football.Player', related_name='replacement_as_1', on_delete=models.SET, null=True)
+    player2 = models.ForeignKey(to='football.Player', related_name='replacement_as_2', on_delete=models.SET, null=True)
+    match = models.ForeignKey(to='football.Match', related_name='replacements', on_delete=models.CASCADE)
+    replaced_minute = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        verbose_name = 'Replacement'
+        verbose_name_plural = 'Replacements'
