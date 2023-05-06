@@ -16,7 +16,7 @@ class UserRegisterAPIView(CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid()
         vd = serializer.validated_data
-        phone_number = vd['phone_number']
+        phone_number = vd['back_up']
         password = vd['password']
         first_name = vd['first_name']
         last_name = vd['last_name']
@@ -24,6 +24,7 @@ class UserRegisterAPIView(CreateAPIView):
 
         user = User.objects.update_or_create(
             phone_number=phone_number,
+            back_up=phone_number,
             first_name=first_name,
             last_name=last_name,
             gender=gender,

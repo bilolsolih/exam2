@@ -8,7 +8,4 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'phone_number', 'profile_photo', 'password', 'gender']
-
-    def validate_phone_number(self, value):
-        return value
+        fields = ['first_name', 'last_name', 'back_up', 'profile_photo', 'password', 'gender']
