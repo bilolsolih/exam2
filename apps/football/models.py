@@ -24,6 +24,7 @@ class League(models.Model):
 
 
 class Match(models.Model):
+    league = models.ForeignKey(to='football.League', related_name='matches', on_delete=models.CASCADE, null=True)
     host = models.ForeignKey('football.Team', related_name='matches_as_host', on_delete=models.SET_NULL, null=True)
     guest = models.ForeignKey('football.Team', related_name='matches_as_guest', on_delete=models.SET_NULL, null=True)
     host_goals = models.PositiveIntegerField(default=0)
