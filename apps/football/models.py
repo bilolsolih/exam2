@@ -32,7 +32,7 @@ class Match(models.Model):
     date = models.DateTimeField(default=timezone.now)
     match_order_number = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(2)])
     is_finished = models.BooleanField(default=True)
-    referee = None
+    referee = models.ManyToManyField(to='football.Referee', related_name='matches')
 
     class Meta:
         verbose_name = 'Match'
