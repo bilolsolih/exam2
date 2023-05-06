@@ -10,7 +10,7 @@ class UserDestroyAPIView(DestroyAPIView):
 
     def perform_destroy(self, instance):
         instance.is_deleted = True
-        instance.phone_number = None
+        instance.phone_number = ''
         instance.save()
 
 

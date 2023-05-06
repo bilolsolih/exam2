@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from phonenumber_field.modelfields import PhoneNumberField
 
 from apps.common.models import BaseModel
 from . import choices
@@ -10,8 +9,8 @@ from .managers import CustomUserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
-    phone_number = PhoneNumberField(verbose_name=_("Phone number"), region="UZ", unique=True)
-    back_up = PhoneNumberField(blank=True, null=True)
+    phone_number = models.CharField(verbose_name=_("Phone number"), unique=True)
+    back_up = models.CharField(blank=True, null=True)
 
     first_name = models.CharField(verbose_name=_("First name"), max_length=124)
     last_name = models.CharField(verbose_name=_("Last name"), max_length=124)

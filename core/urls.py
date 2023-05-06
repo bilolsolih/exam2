@@ -15,7 +15,7 @@ urlpatterns = [
     path("api/v1/users/", include("apps.users.urls", namespace="users")),
     path('api/v1/vacancy/', include('apps.vacancy.urls', namespace='vacancy')),
     path('api/v1/product/', include('apps.product.urls', namespace='product')),
-    path('api/v1/verify/', include('apps.verify.urls', namespace='verify')),
+    # path('api/v1/verify/', include('apps.verify.urls', namespace='verify')),
 
 ]
 
